@@ -1,0 +1,16 @@
+[
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Babynames",
+    "section": "",
+    "text": "This is an example plot using data from the Babynames package\n\n\n\n\n\n\n\nWarning in geom_area(method = \"loess\", alpha = 0.5, se = FALSE, aes(fill = sex,\n: Ignoring unknown parameters: `method`, `se`, and `span`"
+  }
+]

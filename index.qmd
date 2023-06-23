@@ -36,3 +36,29 @@ babynames |>
   scale_y_continuous(labels = scales::percent_format()) +
   scale_x_continuous(breaks = years)
 ```
+
+```{r}
+
+years <- seq(1904, 2016, by = 4)
+
+babynames |>
+  filter(str_detect(name, "^[AEIOUaeiou]")) |>
+  select(year, sex, n, prop) |>
+  summarize(sum_prop = sum(prop), .by = c(year, sex)) |>
+  filter(year >= 1900 & year <= 2016) |>
+  ggplot(aes(x = year, y = sum_prop, fill = sex)) + 
+  geom_area(method = "loess", alpha = 0.5, se = FALSE, aes(fill = sex, color = sex), span = 0.02) + 
+  theme_classic() +
+  labs(x = "Year", y = element_blank(),
+       title = "US Babies Receiving Names Beginning in a Vowel",
+       subtitle = "We see a dip from 1940s to 1960s") +
+  theme(legend.position = "bottom",
+        legend.title = element_blank(),
+        axis.text.x = element_text(angle = 90, hjust = 1),
+        plot.title = element_text(hjust = 0.5, size = 15),
+        plot.subtitle = element_text(hjust = 0.5, size = 12)) +
+  scale_y_continuous(labels = scales::percent_format()) +
+  scale_x_continuous(breaks = years)
+  
+
+```
